@@ -1,12 +1,11 @@
-import {Middleware, combineReducers, configureStore} from '@reduxjs/toolkit';
+import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {persistReducer, persistStore} from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import thunk from 'redux-thunk';
 import userDetailsReducer from './reducers/UserReducers';
 import voiceDetailsReducer from './reducers/VoiceDetailsReducers';
 
 const customizedMiddleware = (getDefaultMiddleware: any) => {
-  return getDefaultMiddleware({serializableCheck: false}).concat(thunk);
+  return getDefaultMiddleware({serializableCheck: false});
 };
 
 // Combine reducers
